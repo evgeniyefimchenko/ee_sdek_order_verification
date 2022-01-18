@@ -1,0 +1,26 @@
+msgid ""
+msgstr "Project-Id-Version: tygh"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Russian\n"
+"Language: ru_RU"
+
+msgctxt "Addons::name::ee_sdek_order_verification"
+msgid "ee_sdek_order_verification_name"
+msgstr "[efimchenko.ru] Модуль проверки статуса заказа СДЭК"
+
+msgctxt "Addons::description::ee_sdek_order_verification"
+msgid "ee_sdek_order_verification_description"
+msgstr "Модуль проверяет и перезаписывает статус заказа СДЭК в отправке."
+
+msgctxt "SettingsSections::ee_sdek_order_verification::general"
+msgid "ee_sdek_order_verification_general"
+msgstr "Общее"
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ee_sdek_order_verification_login"
+msgid "ee_sdek_order_verification_login"
+msgstr "Логин для доступа к серверу расчетов"
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ee_sdek_order_verification_pass"
+msgid "ee_sdek_order_verification_pass"
+msgstr "Пароль для доступа к серверу расчетов"
+
