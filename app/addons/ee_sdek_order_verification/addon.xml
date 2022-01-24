@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0"?>
 <addon scheme="3.0">
     <id>ee_sdek_order_verification</id>
@@ -107,3 +108,114 @@
         <item for="uninstall">fn_ee_sdek_order_verification_uninstall</item>
     </functions>
 </addon>
+=======
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>ee_sdek_order_verification</id>
+    <version>1.0.0</version>
+    <status>active</status>
+    <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+    <default_language>ru</default_language>
+
+    <has_icon>Y</has_icon>
+    <supplier>efimchenko.ru</supplier>
+    <supplier_link>https://efimchenko.ru</supplier_link>
+
+    <settings layout="separate" edition_type="ROOT,VENDOR,STOREFRONT">
+        <sections>
+            <section id="general">
+                <items>
+                    <item id="ee_sdek_order_verification_login">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ee_sdek_order_verification_pass">                      
+                        <type>input</type>
+                    </item>
+                    <item id="how_much_to_check">                      
+                        <type>input</type>
+						<default_value>10</default_value>
+                    </item>						
+                </items>
+            </section>
+            <section id="statuses">
+                <items>
+                    <item id="ACCEPTED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="CREATED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RECEIVED_AT_SHIPMENT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="READY_FOR_SHIPMENT_IN_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RETURNED_TO_SENDER_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="SENT_TO_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_IN_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_AT_TRANSIT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RETURNED_TO_TRANSIT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="READY_FOR_SHIPMENT_IN_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="SENT_TO_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="SENT_TO_RECIPIENT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_IN_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_IN_RECIPIENT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_AT_PICK_UP_POINT">                      
+                        <type>input</type>
+                    </item>
+                    <item id="TAKEN_BY_COURIER">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RETURNED_TO_RECIPIENT_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="DELIVERED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="NOT_DELIVERED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="INVALID">                      
+                        <type>input</type>
+                    </item>				
+                </items>
+            </section>
+        </sections>
+    </settings>
+
+    <functions>
+        <item for="install">fn_ee_sdek_order_verification_install</item>
+        <item for="uninstall">fn_ee_sdek_order_verification_uninstall</item>
+    </functions>
+</addon>
+>>>>>>> c8615902c6c06851608012f75abe6fc34226726b
