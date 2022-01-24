@@ -21,3 +21,7 @@ function fn_ee_sdek_order_verification_start($cdek_number) {
 	}	
 	return $order_info['entity']['statuses'];
 }
+
+function fn_ee_sdek_order_verification_get_information() {
+	return 'Используйте для CRON задания следующую ссылку: <span style="background-color: antiquewhite;">' . fn_url("index.php?dispatch=trigger_ee_sdek_order_verification") . '</span>';
+}
