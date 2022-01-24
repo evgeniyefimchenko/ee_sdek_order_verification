@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <addon scheme="3.0">
     <id>ee_sdek_order_verification</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <status>active</status>
     <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
     <default_language>ru</default_language>

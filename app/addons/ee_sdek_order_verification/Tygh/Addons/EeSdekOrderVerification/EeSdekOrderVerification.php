@@ -384,3 +384,4 @@ class EeSdekOrderVerification {
 		$this->api_method = 'orders';
 		//return $this->makeRequest($data, 'POST', true);		
 	}	
+}
