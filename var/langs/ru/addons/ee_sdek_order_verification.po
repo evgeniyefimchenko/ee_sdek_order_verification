@@ -10,7 +10,7 @@ msgstr "[efimchenko.ru] Модуль проверки статуса заказ�
 
 msgctxt "Addons::description::ee_sdek_order_verification"
 msgid "ee_sdek_order_verification_description"
-msgstr "Модуль проверяет и перезаписывает статус заказа СДЭК в отправке."
+msgstr "Модуль проверяет и перезаписывает статус заказа СДЭК по CRON заданию."
 
 msgctxt "SettingsSections::ee_sdek_order_verification::general"
 msgid "ee_sdek_order_verification_general"
@@ -24,3 +24,198 @@ msgctxt "SettingsOptions::ee_sdek_order_verification::ee_sdek_order_verification
 msgid "ee_sdek_order_verification_pass"
 msgstr "Пароль для доступа к серверу расчетов"
 
+msgctxt "SettingsSections::ee_sdek_order_verification::statuses"
+msgid "ee_sdek_order_verification_statuses"
+msgstr "Статусы"
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ACCEPTED"
+msgid "ee_sdek_order_verification_ACCEPTED"
+msgstr "Принят"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::ACCEPTED"
+msgid "ee_sdek_order_verification_tooltips_ACCEPTED"
+msgstr "Заказ создан в информационной системе СДЭК, но требуются дополнительные валидации."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::CREATED"
+msgid "ee_sdek_order_verification_CREATED"
+msgstr "Создан"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::CREATED"
+msgid "ee_sdek_order_verification_tooltips_CREATED"
+msgstr "Заказ создан в информационной системе СДЭК и прошел необходимые валидации."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::RECEIVED_AT_SHIPMENT_WAREHOUSE"
+msgid "ee_sdek_order_verification_RECEIVED_AT_SHIPMENT_WAREHOUSE"
+msgstr "Принят на склад отправителя"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::RECEIVED_AT_SHIPMENT_WAREHOUSE"
+msgid "ee_sdek_order_verification_tooltips_RECEIVED_AT_SHIPMENT_WAREHOUSE"
+msgstr "Оформлен приход на склад СДЭК в городе-отправителе."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::READY_FOR_SHIPMENT_IN_SENDER_CITY"
+msgid "ee_sdek_order_verification_READY_FOR_SHIPMENT_IN_SENDER_CITY"
+msgstr "Выдан на отправку в г. отправителе"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::READY_FOR_SHIPMENT_IN_SENDER_CITY"
+msgid "ee_sdek_order_verification_tooltips_READY_FOR_SHIPMENT_IN_SENDER_CITY"
+msgstr "Оформлен расход со склада СДЭК в городе-отправителе. Груз подготовлен к отправке (консолидирован с другими посылками)."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::RETURNED_TO_SENDER_CITY_WAREHOUSE"
+msgid "ee_sdek_order_verification_RETURNED_TO_SENDER_CITY_WAREHOUSE"
+msgstr "Возвращен на склад отправителя"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::RETURNED_TO_SENDER_CITY_WAREHOUSE"
+msgid "ee_sdek_order_verification_tooltips_RETURNED_TO_SENDER_CITY_WAREHOUSE"
+msgstr "Повторно оформлен приход в городе-отправителе (не удалось передать перевозчику по какой-либо причине). Примечание: этот статус не означает возврат груза отправителю."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY"
+msgid "ee_sdek_order_verification_TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY"
+msgstr "Сдан перевозчику в г. отправителе"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY"
+msgid "ee_sdek_order_verification_tooltips_TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY"
+msgstr "Зарегистрирована отправка в городе-отправителе. Консолидированный груз передан на доставку (в аэропорт/загружен машину)."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::SENT_TO_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_SENT_TO_TRANSIT_CITY"
+msgstr "Отправлен в г. транзит"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::SENT_TO_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_tooltips_SENT_TO_TRANSIT_CITY"
+msgstr "Зарегистрирована отправка в город-транзит. Проставлены дата и время отправления у перевозчика."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ACCEPTED_IN_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_ACCEPTED_IN_TRANSIT_CITY"
+msgstr "Встречен в г. транзите"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::ACCEPTED_IN_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_tooltips_ACCEPTED_IN_TRANSIT_CITY"
+msgstr "Зарегистрирована встреча в городе-транзите."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ACCEPTED_AT_TRANSIT_WAREHOUSE"
+msgid "ee_sdek_order_verification_ACCEPTED_AT_TRANSIT_WAREHOUSE"
+msgstr "Принят на склад транзита"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::ACCEPTED_AT_TRANSIT_WAREHOUSE"
+msgid "ee_sdek_order_verification_tooltips_ACCEPTED_AT_TRANSIT_WAREHOUSE"
+msgstr "Оформлен приход в городе-транзите."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::RETURNED_TO_TRANSIT_WAREHOUSE"
+msgid "ee_sdek_order_verification_RETURNED_TO_TRANSIT_WAREHOUSE"
+msgstr "Возвращен на склад транзита"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::RETURNED_TO_TRANSIT_WAREHOUSE"
+msgid "ee_sdek_order_verification_tooltips_RETURNED_TO_TRANSIT_WAREHOUSE"
+msgstr "Повторно оформлен приход в городе-транзите (груз возвращен на склад). Примечание: этот статус не означает возврат груза отправителю."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::READY_FOR_SHIPMENT_IN_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_READY_FOR_SHIPMENT_IN_TRANSIT_CITY"
+msgstr "Выдан на отправку в г. транзите"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::READY_FOR_SHIPMENT_IN_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_tooltips_READY_FOR_SHIPMENT_IN_TRANSIT_CITY"
+msgstr "Оформлен расход в городе-транзите."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY"
+msgstr "Сдан перевозчику в г. транзите"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY"
+msgid "ee_sdek_order_verification_tooltips_TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY"
+msgstr "Зарегистрирована отправка у перевозчика в городе-транзите."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::SENT_TO_SENDER_CITY"
+msgid "ee_sdek_order_verification_SENT_TO_SENDER_CITY"
+msgstr "Отправлен в г. отправитель"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::SENT_TO_SENDER_CITY"
+msgid "ee_sdek_order_verification_tooltips_SENT_TO_SENDER_CITY"
+msgstr "Зарегистрирована отправка в город-отправитель, груз в пути."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::SENT_TO_RECIPIENT_CITY"
+msgid "ee_sdek_order_verification_SENT_TO_RECIPIENT_CITY"
+msgstr "Отправлен в г. получатель"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::SENT_TO_RECIPIENT_CITY"
+msgid "ee_sdek_order_verification_tooltips_SENT_TO_RECIPIENT_CITY"
+msgstr "Зарегистрирована отправка в город-получатель, груз в пути."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ACCEPTED_IN_SENDER_CITY"
+msgid "ee_sdek_order_verification_ACCEPTED_IN_SENDER_CITY"
+msgstr "Встречен в г. отправителе"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::ACCEPTED_IN_SENDER_CITY"
+msgid "ee_sdek_order_verification_tooltips_ACCEPTED_IN_SENDER_CITY"
+msgstr "Зарегистрирована встреча груза в городе-отправителе."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ACCEPTED_IN_RECIPIENT_CITY"
+msgid "ee_sdek_order_verification_ACCEPTED_IN_RECIPIENT_CITY"
+msgstr "Встречен в г. получателе"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::ACCEPTED_IN_RECIPIENT_CITY"
+msgid "ee_sdek_order_verification_tooltips_ACCEPTED_IN_RECIPIENT_CITY"
+msgstr "Зарегистрирована встреча груза в городе-получателе."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE"
+msgid "ee_sdek_order_verification_ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE"
+msgstr "Принят на склад доставки"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE"
+msgid "ee_sdek_order_verification_tooltips_ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE"
+msgstr "Оформлен приход на склад города-получателя, ожидает доставки до двери."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::ACCEPTED_AT_PICK_UP_POINT"
+msgid "ee_sdek_order_verification_ACCEPTED_AT_PICK_UP_POINT"
+msgstr "Принят на склад до востребования"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::ACCEPTED_AT_PICK_UP_POINT"
+msgid "ee_sdek_order_verification_tooltips_ACCEPTED_AT_PICK_UP_POINT"
+msgstr "Оформлен приход на склад города-получателя. Доставка до склада, посылка ожидает забора клиентом - покупателем ИМ."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::TAKEN_BY_COURIER"
+msgid "ee_sdek_order_verification_TAKEN_BY_COURIER"
+msgstr "Выдан на доставку"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::TAKEN_BY_COURIER"
+msgid "ee_sdek_order_verification_tooltips_TAKEN_BY_COURIER"
+msgstr "Добавлен в курьерскую карту, выдан курьеру на доставку."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::RETURNED_TO_RECIPIENT_CITY_WAREHOUSE"
+msgid "ee_sdek_order_verification_RETURNED_TO_RECIPIENT_CITY_WAREHOUSE"
+msgstr "Возвращен на склад доставки"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::RETURNED_TO_RECIPIENT_CITY_WAREHOUSE"
+msgid "ee_sdek_order_verification_tooltips_RETURNED_TO_RECIPIENT_CITY_WAREHOUSE"
+msgstr "Оформлен повторный приход на склад в городе-получателе. Доставка не удалась по какой-либо причине, ожидается очередная попытка доставки. Примечание: этот статус не означает возврат груза отправителю."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::DELIVERED"
+msgid "ee_sdek_order_verification_DELIVERED"
+msgstr "Вручен"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::DELIVERED"
+msgid "ee_sdek_order_verification_tooltips_DELIVERED"
+msgstr "Успешно доставлен и вручен адресату (конечный статус)."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::NOT_DELIVERED"
+msgid "ee_sdek_order_verification_NOT_DELIVERED"
+msgstr "Не вручен"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::NOT_DELIVERED"
+msgid "ee_sdek_order_verification_tooltips_NOT_DELIVERED"
+msgstr "Покупатель отказался от покупки, возврат в ИМ (конечный статус)."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::INVALID"
+msgid "ee_sdek_order_verification_INVALID"
+msgstr "Некорректный заказ"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::INVALID"
+msgid "ee_sdek_order_verification_tooltips_INVALID"
+msgstr "Заказ содержит некорректные данные."
+
+msgctxt "SettingsOptions::ee_sdek_order_verification::how_much_to_check"
+msgid "ee_sdek_order_verification_how_much_to_check"
+msgstr "Сколько заказов проверять"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::how_much_to_check"
+msgid "ee_sdek_order_verification_tooltips_how_much_to_check"
+msgstr "Количество крайних заказов СДЭК для которых будет производиться проверка статуса."
