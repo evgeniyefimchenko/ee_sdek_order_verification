@@ -20,6 +20,83 @@
                     <item id="ee_sdek_order_verification_pass">                      
                         <type>input</type>
                     </item>
+                    <item id="how_much_to_check">                      
+                        <type>input</type>
+						<default_value>10</default_value>
+                    </item>						
+                </items>
+            </section>
+            <section id="statuses">
+                <items>
+                    <item id="ACCEPTED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="CREATED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RECEIVED_AT_SHIPMENT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="READY_FOR_SHIPMENT_IN_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RETURNED_TO_SENDER_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="SENT_TO_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_IN_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_AT_TRANSIT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RETURNED_TO_TRANSIT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="READY_FOR_SHIPMENT_IN_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="SENT_TO_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="SENT_TO_RECIPIENT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_IN_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_IN_RECIPIENT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ACCEPTED_AT_PICK_UP_POINT">                      
+                        <type>input</type>
+                    </item>
+                    <item id="TAKEN_BY_COURIER">                      
+                        <type>input</type>
+                    </item>
+                    <item id="RETURNED_TO_RECIPIENT_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="DELIVERED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="NOT_DELIVERED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="INVALID">                      
+                        <type>input</type>
+                    </item>				
                 </items>
             </section>
         </sections>

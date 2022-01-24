@@ -1,1 +1,1 @@
-﻿ee_sdek_order_verification - модуль позволяющий
+﻿ee_sdek_order_verification - модуль позволяющий сверять статусы заказов СДЭК по крон заданию.
