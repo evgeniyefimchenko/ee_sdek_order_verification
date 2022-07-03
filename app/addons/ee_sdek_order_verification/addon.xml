@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <addon scheme="3.0">
     <id>ee_sdek_order_verification</id>
-    <version>1.0.2</version>
+    <version>1.0.5</version>
     <status>active</status>
     <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
     <default_language>ru</default_language>
@@ -24,14 +24,22 @@
                         <type>input</type>
 						<default_value>10</default_value>
                     </item>
+                    <item id="access_code">                      
+                        <type>input</type>
+						<default_value>efimchenko.ru</default_value>
+                    </item>
 					<item id="ee_sdek_order_verification_information">
 					   <type>info</type>
 					   <handler>fn_ee_sdek_order_verification_get_information</handler>
 					</item>					
                 </items>
             </section>
-            <section id="statuses">
+            <section id="statuses_sdek">
                 <items>
+					<item id="information_statuses_order">
+					   <type>info</type>
+					   <handler>fn_ee_sdek_order_verification_get_information_statuses_sdek</handler>
+					</item>					
                     <item id="ACCEPTED">                      
                         <type>input</type>
                     </item>
@@ -100,9 +108,86 @@
                     </item>
                     <item id="INVALID">                      
                         <type>input</type>
-                    </item>				
+                    </item>
                 </items>
             </section>
+            <section id="statuses_order">
+                <items>
+					<item id="information_statuses_order">
+					   <type>info</type>
+					   <handler>fn_get_information_statuses_order</handler>
+					</item>				
+                    <item id="ORDER_ACCEPTED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_CREATED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_RECEIVED_AT_SHIPMENT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_READY_FOR_SHIPMENT_IN_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_RETURNED_TO_SENDER_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_SENT_TO_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_ACCEPTED_IN_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_ACCEPTED_AT_TRANSIT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_RETURNED_TO_TRANSIT_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_READY_FOR_SHIPMENT_IN_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_SENT_TO_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_SENT_TO_RECIPIENT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_ACCEPTED_IN_SENDER_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_ACCEPTED_IN_RECIPIENT_CITY">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_ACCEPTED_AT_PICK_UP_POINT">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_TAKEN_BY_COURIER">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_RETURNED_TO_RECIPIENT_CITY_WAREHOUSE">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_DELIVERED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_NOT_DELIVERED">                      
+                        <type>input</type>
+                    </item>
+                    <item id="ORDER_INVALID">                      
+                        <type>input</type>
+                    </item>	
+                </items>
+            </section>					
         </sections>
     </settings>
 

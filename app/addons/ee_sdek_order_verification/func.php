@@ -23,5 +23,13 @@ function fn_ee_sdek_order_verification_start($cdek_number) {
 }
 
 function fn_ee_sdek_order_verification_get_information() {
-	return 'Используйте для CRON задания следующую ссылку: <span style="background-color: antiquewhite;">' . fn_url("index.phptrigger_ee_sdek_order_verification") . '</span>';
+	return 'Используйте для CRON задания следующую ссылку: <span style="background-color: antiquewhite;">' . fn_url("index.phptrigger_ee_sdek_order_verification?access_code=" . Registry::get('addons.ee_sdek_order_verification.access_code')) . '</span>';
+}
+
+function fn_ee_sdek_order_verification_get_information_statuses_sdek() {
+	return 'Соотношение статусов в ЛК СДЭК с Вашими статусами отгрузки</hr>';
+}
+
+function fn_get_information_statuses_order() {
+	return 'Соотношение статусов в ЛК СДЭК с Вашими статусами заказов</hr>';
 }
