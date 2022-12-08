@@ -9,11 +9,11 @@ class EeSdekOrderVerification {
     protected $account = '';
     protected $secure_password = '';
 	protected $addon_settings = [];
-	protected $token = '';
-	protected $full_token = [];
+	public $token = '';
+	public $full_token = [];
 	protected $api_url = '';
 	protected $api_method = '';
-	protected $supplier_options;
+	protected $supplier_options;	
 	private $week_arr = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 	
 	public function __construct($supplier_options) {
@@ -34,7 +34,7 @@ class EeSdekOrderVerification {
 		}
 		$this->full_token = $this->get_token();					
 		if ($this->full_token['error'] === true || !$this->full_token['access_token']) {
-			file_put_contents(__DIR__ . '/logs.txt', PHP_EOL . date("Y-m-d H:i:s") . PHP_EOL . $this->secure_password . ' Ошибка получения токена: ' . var_export($this->full_token, true) . PHP_EOL, FILE_APPEND | LOCK_EX);
+			//file_put_contents(__DIR__ . '/logs.txt', PHP_EOL . date("Y-m-d H:i:s") . PHP_EOL . $this->secure_password . ' Ошибка получения токена: ' . var_export($this->full_token, true) . PHP_EOL, FILE_APPEND | LOCK_EX);
 		}		
 		$this->token = $this->full_token['access_token'];
     }
@@ -184,6 +184,9 @@ class EeSdekOrderVerification {
 		return $data ? $this->makeRequest($data, 'POST', true) : ['error' => true];
 	}
 	
+	/**
+	* Получение статуса заказа
+	*/
 	public function get_order_info($uuid, $cdek_number = false) {
 		if (!$this->token) {
 			return false;
@@ -195,6 +198,27 @@ class EeSdekOrderVerification {
 		}
 		$res = $this->makeRequest(array(), 'GET', false);		
 		return $res;
+	}
+
+	/**
+	* Получим имеющиеся вебхуки
+	*/
+	public function get_my_webhooks() {
+		if (!$this->token) {
+			return false;
+		}
+		$this->api_method = 'webhooks';
+		$res = $this->makeRequest(array(), 'GET', false);		
+		return $res;		
+	}
+
+	public function set_my_webhooks() {
+		if (!$this->token) {
+			return false;
+		}
+		$this->api_method = 'webhooks';
+		$res = $this->makeRequest(['url' => fn_url("index.phptrigger_ee_sdek_order_verification?access_code=" . Registry::get('addons.ee_sdek_order_verification.access_code')), 'type' => 'ORDER_STATUS'], 'POST', false);		
+		return $res;		
 	}
 	
 	/**
@@ -322,7 +346,7 @@ class EeSdekOrderVerification {
 				curl_setopt($curl, CURLOPT_POST, 1);
 				curl_setopt($curl, CURLOPT_POSTFIELDS, $send_data);
 			}                        
-			$response = json_decode(curl_exec($curl), TRUE);
+			$response = json_decode(curl_exec($curl), true);
 			curl_close($curl);
 			$response['send_url'] = $this->api_url . $this->api_method;
 			$response['send_data'] = $send_data;

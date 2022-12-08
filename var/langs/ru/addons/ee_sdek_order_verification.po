@@ -26,11 +26,11 @@ msgstr "Пароль для доступа к серверу расчетов"
 
 msgctxt "SettingsSections::ee_sdek_order_verification::statuses_sdek"
 msgid "ee_sdek_order_verification_statuses"
-msgstr "Статусы СЭК"
+msgstr "Статусы Отгрузок"
 
 msgctxt "SettingsSections::ee_sdek_order_verification::statuses_order"
 msgid "ee_sdek_order_verification_statuses"
-msgstr "Статусы Заказов на сайте"
+msgstr "Статусы Заказов"
 
 msgctxt "SettingsOptions::ee_sdek_order_verification::access_code"
 msgid "ee_sdek_order_verification_access_code"

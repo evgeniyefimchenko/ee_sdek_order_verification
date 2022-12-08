@@ -3,12 +3,17 @@ if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
 use Tygh\Registry;
 
-$settings_addon = Registry::get('addons.ee_sdek_order_verification');
 if ($_GET['access_code'] == $settings_addon['access_code']) {
+	$settings_addon = Registry::get('addons.ee_sdek_order_verification');
 	$statuses = $sdek_shipments = [];
 	$how_much_to_check = preg_replace('/[^0-9]/', '', $settings_addon['how_much_to_check']);
 	$how_much_to_check = mb_strlen($how_much_to_check) > 0 ? $how_much_to_check : 10;
-	$sdek_shipments = db_get_array('SELECT shipment_id, tracking_number FROM ?:shipments WHERE carrier LIKE "sdek" ORDER BY shipment_id DESC LIMIT ?i', $how_much_to_check);
+	$post = json_decode(file_get_contents('php://input'), true);
+	if ($post['type'] == 'ORDER_STATUS') {
+		$sdek_shipments = db_get_array('SELECT shipment_id, tracking_number FROM ?:shipments WHERE carrier LIKE "sdek" AND tracking_number LIKE ?s', $post['attributes']['cdek_number']);
+	} else {
+		$sdek_shipments = db_get_array('SELECT shipment_id, tracking_number FROM ?:shipments WHERE carrier LIKE "sdek" ORDER BY shipment_id DESC LIMIT ?i', $how_much_to_check);
+	}
 	foreach ($sdek_shipments as $shipment) {
 		$statuses[$shipment['shipment_id']] = fn_ee_sdek_order_verification_start($shipment['tracking_number']);
 	}
