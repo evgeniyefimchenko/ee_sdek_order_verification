@@ -36,9 +36,9 @@ if ($_GET['access_code'] == $settings_addon['access_code']) {
 		if (mb_strlen($addon_order_code) > 0 && array_key_exists($addon_order_code, $cscart_statuses_orders)) { // Статусы заказов			
 			db_query('UPDATE ?:orders SET status = ?s WHERE order_id = ?i', $settings_addon[$addon_order_code], $order_id);
 		}
-	
-		db_replace_into('ee_sdek_history_status', ['order_id' => $order_id, 'shipment_id' => $key, 'statuses' => json_encode(array_reverse($val))]);
-		
+		if (is_array($val)) {
+			db_replace_into('ee_sdek_history_status', ['order_id' => $order_id, 'shipment_id' => $key, 'statuses' => json_encode(array_reverse($val))]);		
+		}
 	}
 	echo 'OK';
 	die;

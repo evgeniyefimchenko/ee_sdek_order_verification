@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <addon scheme="3.0">
     <id>ee_sdek_order_verification</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <status>active</status>
     <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
     <default_language>ru</default_language>
@@ -14,7 +14,11 @@
         <sections>
             <section id="general">
                 <items>
-                    <item id="ee_sdek_order_verification_login">                      
+					<item id="hide_shipments">
+						<type>checkbox</type>
+						<default_value>N</default_value>
+					</item>
+                    <item id="ee_sdek_order_verification_login">
                         <type>input</type>
                     </item>
                     <item id="ee_sdek_order_verification_pass">                      

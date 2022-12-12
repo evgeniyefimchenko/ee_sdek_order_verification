@@ -20,6 +20,10 @@ msgctxt "SettingsOptions::ee_sdek_order_verification::ee_sdek_order_verification
 msgid "ee_sdek_order_verification_login"
 msgstr "Логин для доступа к серверу расчетов"
 
+msgctxt "SettingsOptions::ee_sdek_order_verification::hide_shipments"
+msgid "ee_sdek_order_verification_hide_shipments"
+msgstr "Скрыть отгрузки из админ-панели"
+
 msgctxt "SettingsOptions::ee_sdek_order_verification::ee_sdek_order_verification_pass"
 msgid "ee_sdek_order_verification_pass"
 msgstr "Пароль для доступа к серверу расчетов"

@@ -54,3 +54,23 @@ function fn_ee_sdek_order_verification_get_information_statuses_sdek() {
 function fn_get_information_statuses_order() {	
 	return 'Соотношение статусов в ЛК СДЭК с Вашими статусами заказов.</hr>';
 }
+
+function fn_get_track_by_order_id($order_id) {
+	$statuses = db_get_field('SELECT statuses FROM ?:ee_sdek_history_status WHERE order_id = ?i', $order_id);
+	return json_decode($statuses, true);
+}
+
+function fn_show_our_status_order($statuses) {
+	$res = [];
+	if (is_array($statuses)) {
+		$settings_addon = Registry::get('addons.ee_sdek_order_verification');
+		$cscart_statuses_orders = fn_get_statuses(STATUSES_ORDER, [], true);		
+		foreach ($statuses as $item) {
+			$addon_order_code = $settings_addon['ORDER_' . $item['code']];
+			if ($addon_order_code != 0) {
+				$res[] = ['status' => $cscart_statuses_orders[$addon_order_code]['description'], 'date' => date('d.m.Y h:i:s', strtotime($item['date_time'])), 'place' => $item['city']];
+			}
+		}
+	}
+	return $res;
+}
