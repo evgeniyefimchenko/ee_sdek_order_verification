@@ -24,6 +24,26 @@ msgctxt "SettingsOptions::ee_sdek_order_verification::hide_shipments"
 msgid "ee_sdek_order_verification_hide_shipments"
 msgstr "Скрыть отгрузки из админ-панели"
 
+msgctxt "SettingsOptions::ee_sdek_order_verification::show_traking"
+msgid "ee_sdek_order_verification_show_traking"
+msgstr "Показывать историю статусов заказа"
+
+msgctxt "SettingsTooltips::ee_sdek_order_verification::show_traking"
+msgid "ee_sdek_order_verification_tooltips_show_traking"
+msgstr "Отобразит во всплывающем окне статусы заказа у админ панели и карточке покупателя."
+
+msgctxt "SettingsVariants::ee_sdek_order_verification::show_traking::status_none"
+msgid "ee_status_none"
+msgstr "Не отображать"
+
+msgctxt "SettingsVariants::ee_sdek_order_verification::show_traking::status_site"
+msgid "ee_status_site"
+msgstr "Сопоставленные статусы сайта"
+
+msgctxt "SettingsVariants::ee_sdek_order_verification::show_traking::status_sdek"
+msgid "ee_status_sdek"
+msgstr "Статусы из СДЭК"
+
 msgctxt "SettingsOptions::ee_sdek_order_verification::ee_sdek_order_verification_pass"
 msgid "ee_sdek_order_verification_pass"
 msgstr "Пароль для доступа к серверу расчетов"
