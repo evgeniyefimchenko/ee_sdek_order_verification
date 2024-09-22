@@ -32,9 +32,10 @@ if ($_GET['access_code'] == $settings_addon['access_code']) {
 			db_query('UPDATE ?:rus_sdek_status SET status = ?s WHERE shipment_id = ?i', $val[0]['name'], $key);		
 		}
 		$order_id = db_get_field('SELECT order_id FROM ?:shipment_items WHERE shipment_id = ?i', $key);
-		$addon_order_code = $settings_addon['ORDER_' . $val[0]['code']];
-		if (mb_strlen($addon_order_code) > 0 && array_key_exists($addon_order_code, $cscart_statuses_orders)) { // Статусы заказов			
-			db_query('UPDATE ?:orders SET status = ?s WHERE order_id = ?i', $settings_addon[$addon_order_code], $order_id);
+		$addon_order_code = 'ORDER_' . $val[0]['code'];
+		$newStatus = isset($settings_addon[$addon_order_code]) ? $settings_addon[$addon_order_code] : false;
+		if ($newStatus && array_key_exists($newStatus, $cscart_statuses_orders)) { // Статусы заказов			
+			db_query('UPDATE ?:orders SET status = ?s WHERE order_id = ?i', $newStatus, $order_id);
 		}
 		if (is_array($val)) {
 			db_replace_into('ee_sdek_history_status', ['order_id' => $order_id, 'shipment_id' => $key, 'statuses' => json_encode(array_reverse($val))]);		

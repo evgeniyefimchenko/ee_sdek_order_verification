@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <addon scheme="3.0">
     <id>ee_sdek_order_verification</id>
-    <version>1.2.0</version>
+    <version>1.2.3</version>
     <status>active</status>
     <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
     <default_language>ru</default_language>
 
     <has_icon>Y</has_icon>
     <supplier>efimchenko.ru</supplier>
-    <supplier_link>https://efimchenko.ru</supplier_link>
-
+    <supplier_link>https://efimchenko.ru</supplier_link>	
     <settings layout="separate" edition_type="ROOT,VENDOR,STOREFRONT">
         <sections>
             <section id="general">

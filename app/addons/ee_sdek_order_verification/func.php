@@ -19,7 +19,7 @@ function fn_ee_sdek_order_verification_start($cdek_number) {
 	if ($order_info['error'] === true) {
 		return false;
 	}	
-	return $order_info['entity']['statuses'];
+	return $order_info['entity'];
 }
 
 function fn_ee_sdek_order_verification_get_information() {
@@ -57,6 +57,11 @@ function fn_get_information_statuses_order() {
 
 function fn_get_track_by_order_id($order_id) {
 	$statuses = db_get_field('SELECT statuses FROM ?:ee_sdek_history_status WHERE order_id = ?i', $order_id);
+	return json_decode($statuses, true);
+}
+
+function fn_get_track_by_shipment_id($shipment_id) {
+	$statuses = db_get_field('SELECT statuses FROM ?:ee_sdek_history_status WHERE shipment_id = ?i', $shipment_id);
 	return json_decode($statuses, true);
 }
 
