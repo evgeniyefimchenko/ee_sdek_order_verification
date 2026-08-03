@@ -1,217 +1,112 @@
 <?xml version="1.0"?>
-<addon scheme="3.0">
+<addon scheme="4.0">
     <id>ee_sdek_order_verification</id>
-    <version>1.2.3</version>
+    <version>2.0.0</version>
     <status>active</status>
     <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
     <default_language>ru</default_language>
-
+    
     <has_icon>Y</has_icon>
     <supplier>efimchenko.ru</supplier>
-    <supplier_link>https://efimchenko.ru</supplier_link>	
+    <supplier_link>https://efimchenko.ru</supplier_link>
+    <compatibility>
+        <from_version>4.13.1</from_version>
+    </compatibility>
+    
     <settings layout="separate" edition_type="ROOT,VENDOR,STOREFRONT">
         <sections>
             <section id="general">
                 <items>
-					<item id="show_traking">
-						<type>selectbox</type>
-						<default_value>status_none</default_value>
-						<variants>
-							<item id="status_none"></item>
-							<item id="status_sdek"></item>
-							<item id="status_site"></item>
-						</variants>
-					</item>
-					<item id="hide_shipments">
-						<type>checkbox</type>
-						<default_value>N</default_value>
-					</item>
-                    <item id="ee_sdek_order_verification_login">
-                        <type>input</type>
+                    <item id="enabled">
+                        <type>checkbox</type>
+                        <default_value>Y</default_value>
                     </item>
-                    <item id="ee_sdek_order_verification_pass">                      
-                        <type>input</type>
+                    <item id="show_tracking">
+                        <type>selectbox</type>
+                        <default_value>none</default_value>
+                        <variants>
+                            <item id="none"/>
+                            <item id="sdek"/>
+                            <item id="mapped"/>
+                        </variants>
                     </item>
-                    <item id="how_much_to_check">                      
-                        <type>input</type>
-						<default_value>10</default_value>
+                    <item id="hide_shipments">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
                     </item>
-                    <item id="access_code">                      
+                    <item id="login">
                         <type>input</type>
-						<default_value>efimchenko.ru</default_value>
+                        <required>Y</required>
                     </item>
-					<item id="ee_sdek_order_verification_information">
-					   <type>info</type>
-					   <handler>fn_ee_sdek_order_verification_get_information</handler>
-					</item>					
+                    <item id="password">
+                        <type>password</type>
+                        <required>Y</required>
+                    </item>
+                    <item id="test_mode">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="batch_size">
+                        <type>input</type>
+                        <default_value>50</default_value>
+                        <required>Y</required>
+                    </item>
+                    <item id="access_code">
+                        <type>password</type>
+                        <required>Y</required>
+                    </item>
+                    <item id="webhook_enabled">
+                        <type>checkbox</type>
+                        <default_value>N</default_value>
+                    </item>
+                    <item id="connection_info">
+                       <type>info</type>
+                       <handler>fn_ee_sdek_get_connection_info</handler>
+                    </item>
+                    <item id="cron_info">
+                       <type>info</type>
+                       <handler>fn_ee_sdek_get_cron_info</handler>
+                    </item>
                 </items>
             </section>
-            <section id="statuses_sdek">
+            <section id="statuses_shipment">
                 <items>
-					<item id="information_statuses_order">
-					   <type>info</type>
-					   <handler>fn_ee_sdek_order_verification_get_information_statuses_sdek</handler>
-					</item>					
-                    <item id="ACCEPTED">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="CREATED">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="RECEIVED_AT_SHIPMENT_WAREHOUSE">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="READY_FOR_SHIPMENT_IN_SENDER_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="RETURNED_TO_SENDER_CITY_WAREHOUSE">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="SENT_TO_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="ACCEPTED_IN_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="ACCEPTED_AT_TRANSIT_WAREHOUSE">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="RETURNED_TO_TRANSIT_WAREHOUSE">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="READY_FOR_SHIPMENT_IN_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="SENT_TO_SENDER_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="SENT_TO_RECIPIENT_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="ACCEPTED_IN_SENDER_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="ACCEPTED_IN_RECIPIENT_CITY">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="ACCEPTED_AT_PICK_UP_POINT">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="TAKEN_BY_COURIER">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="RETURNED_TO_RECIPIENT_CITY_WAREHOUSE">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="DELIVERED">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="NOT_DELIVERED">                      
-                        <type>selectbox</type>
-                    </item>
-                    <item id="INVALID">                      
-                        <type>selectbox</type>
+                    <item id="info_shipment_statuses">
+                       <type>info</type>
+                       <text>ee_sdek_order_verification_info_shipment_statuses</text>
                     </item>
                 </items>
             </section>
             <section id="statuses_order">
                 <items>
-					<item id="information_statuses_order">
-					   <type>info</type>
-					   <handler>fn_get_information_statuses_order</handler>
-					</item>				
-                    <item id="ORDER_ACCEPTED">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_CREATED">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_RECEIVED_AT_SHIPMENT_WAREHOUSE">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_READY_FOR_SHIPMENT_IN_SENDER_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_RETURNED_TO_SENDER_CITY_WAREHOUSE">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_TAKEN_BY_TRANSPORTER_FROM_SENDER_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_SENT_TO_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_ACCEPTED_IN_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_ACCEPTED_AT_TRANSIT_WAREHOUSE">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_RETURNED_TO_TRANSIT_WAREHOUSE">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_READY_FOR_SHIPMENT_IN_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_TAKEN_BY_TRANSPORTER_FROM_TRANSIT_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_SENT_TO_SENDER_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_SENT_TO_RECIPIENT_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_ACCEPTED_IN_SENDER_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_ACCEPTED_IN_RECIPIENT_CITY">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_ACCEPTED_AT_RECIPIENT_CITY_WAREHOUSE">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_ACCEPTED_AT_PICK_UP_POINT">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_TAKEN_BY_COURIER">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_RETURNED_TO_RECIPIENT_CITY_WAREHOUSE">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_DELIVERED">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_NOT_DELIVERED">                      
-                        <type>selectbox</type>
-					</item>
-                    <item id="ORDER_INVALID">					
-                        <type>selectbox</type>
-					</item>	
+                    <item id="info_order_statuses">
+                       <type>info</type>
+                       <text>ee_sdek_order_verification_info_order_statuses</text>
+                    </item>
                 </items>
-            </section>					
+            </section>
+            <section id="documentation">
+                <items>
+                    <item id="documentation_block"><type>template</type><default_value>documentation.tpl</default_value></item>
+                </items>
+            </section>
         </sections>
     </settings>
-	<queries>
-		<item for="install">
-		CREATE TABLE IF NOT EXISTS ?:ee_sdek_history_status (
-		order_id MEDIUMINT(8) UNSIGNED NOT NULL,
-		shipment_id MEDIUMINT(8) UNSIGNED NOT NULL,
-		statuses MEDIUMTEXT NOT NULL DEFAULT '',
-		PRIMARY KEY (shipment_id)
-		) DEFAULT CHARSET UTF8;
-		</item>
-	</queries>
+    <queries>
+        <item for="install">
+            CREATE TABLE IF NOT EXISTS ?:ee_sdek_history_status (
+                order_id INT(11) UNSIGNED NOT NULL,
+                shipment_id INT(11) UNSIGNED NOT NULL,
+                statuses MEDIUMTEXT NOT NULL,
+                last_update TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                PRIMARY KEY (shipment_id),
+                KEY order_id (order_id)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        </item>
+        <item for="uninstall">
+            DROP TABLE IF EXISTS ?:ee_sdek_history_status;
+        </item>
+    </queries>
     <functions>
         <item for="install">fn_ee_sdek_order_verification_install</item>
         <item for="uninstall">fn_ee_sdek_order_verification_uninstall</item>
